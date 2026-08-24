@@ -20,8 +20,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/travels" element={<TravelListPage />} />
-        <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
+        <Route path="/travelPlans" element={<TravelListPage />} />
+        <Route path="/travelPlans/:travelId" element={<TravelDetailsPage />} />
 
         <Route path={"*"} element={<ErrorPage />} />
       </Routes>

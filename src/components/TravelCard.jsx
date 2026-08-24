@@ -17,7 +17,7 @@ function TravelCard({ id, travelLocation, travelImage, nameofTraveller }) {
 
         <p>Travelled by {nameofTraveller}</p>
 
-        <Link to={`/travels/${id}`} className="TravelCard-link">
+        <Link to={`/travelPlans/${id}`} className="TravelCard-link">
           View travel
         </Link>
       </div>
