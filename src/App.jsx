@@ -1,24 +1,34 @@
-import { useState } from 'react'
-import { Routes, Route} from "react-router-dom"
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
+import HomePage from "./Pages/HomePage";
+import TravelDetailsPage from "./Pages/TravelDetailsPage";
+import TravelListPage from "./Pages/TravelListPage";
+import ErrorPage from "./Pages/ErrorPage"
+
+import NavBar from "./components/NavBar"
+import Footer from "./components/Footer"
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <NavBar/>
-      <Footer/>
+      <NavBar />
+   
 
-     <Routes>
-      <Route></Route>
-     </Routes>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/travels" element={<TravelListPage />} />
+        <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
 
+        <Route path={"*"} element={<ErrorPage />} />
+      </Routes>
+
+         <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
