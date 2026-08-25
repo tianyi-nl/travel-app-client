@@ -1,8 +1,11 @@
-import React from 'react'
+import "./Footer.css";
+  
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div className="Footer">
+      <p>&copy; 2026 Travel App. All rights reserved.</p>
+    </div>
   )
 }
 
