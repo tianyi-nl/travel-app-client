@@ -1,0 +1,39 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import CreatorCard from "../components/CreatorCard";
+
+function CreatorListPage() {
+  const [allCreator, setAllCreator] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        "https://travelapp-json-server.onrender.com/creator",
+      );
+
+      setAllCreator(response.data);
+      setIsLoading (false)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (isLoading) return <h3>loading</h3>;
+
+  return (
+    <div>
+      {allCreator.map((creator) => {
+        return <CreatorCard key = {creator.id} {...creator}/>;
+      })}
+    </div>
+  );
+}
+
+export default CreatorListPage;
