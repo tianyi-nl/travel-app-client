@@ -1,6 +1,26 @@
 .CreateTravelForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   max-width: 500px;
+  margin: 30px auto;
+}
+
+.CreateTravelForm input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.CreateTravelForm label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.CreateTravelForm button {
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
 }

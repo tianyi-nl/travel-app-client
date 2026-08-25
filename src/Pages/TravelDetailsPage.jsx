@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function TravelDetailsPage() {
   //console.log("traveldetailspage is running")
@@ -9,6 +10,7 @@ function TravelDetailsPage() {
 
   const [travelPlan, setTravelPlan] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate()
 
   useEffect(() => {
     getData();
@@ -22,11 +24,18 @@ function TravelDetailsPage() {
 
       setTravelPlan(response.data);
       setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
+
+      }
+      catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    };
+
+    const deleteTravel = async() =>{
+      await axios.delete(`https://travelapp-json-server.onrender.com/travelPlans/${travelId}`)
+      navigate("/")
     }
-  };
 
 
   if (isLoading) return <h3>loading....</h3>
@@ -73,6 +82,10 @@ function TravelDetailsPage() {
       <Link to="/travels">
         Back to all travels
       </Link>
+
+      <button onClick={deleteTravel}>
+  Delete 
+</button>
 
     </div>
   );
