@@ -19,7 +19,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="bg-slate-50 min-h-screen text-slate-900">
       <NavBar />
 
       <Routes>
@@ -39,7 +39,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

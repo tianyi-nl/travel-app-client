@@ -2,6 +2,7 @@ import React from 'react'
 
 function AboutPage() {
   return (
+    
     <div className="AboutPage">
       <h1>About Us</h1>
       <p>Welcome to our travel app! We are dedicated to providing the best travel experiences in Europe for our users.
