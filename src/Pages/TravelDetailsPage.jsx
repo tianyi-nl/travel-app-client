@@ -10,7 +10,7 @@ function TravelDetailsPage() {
 
   const [travelPlan, setTravelPlan] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -24,34 +24,27 @@ function TravelDetailsPage() {
 
       setTravelPlan(response.data);
       setIsLoading(false);
-
-      }
-      catch (error) {
-        console.log(error);
-        setIsLoading(false);
-      }
-    };
-
-    const deleteTravel = async() =>{
-      await axios.delete(`https://travelapp-json-server.onrender.com/travelPlans/${travelId}`)
-      navigate("/")
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
     }
+  };
 
+  const deleteTravel = async () => {
+    await axios.delete(
+      `https://travelapp-json-server.onrender.com/travelPlans/${travelId}`,
+    );
+    navigate("/");
+  };
 
-  if (isLoading) return <h3>loading....</h3>
+  if (isLoading) return <h3>loading....</h3>;
   return (
     <div className="TravelDetailsPage">
-
       <h1>{travelPlan.travelLocation}</h1>
 
-      <p>
-        Travelled by {travelPlan.nameofTraveller}
-      </p>
+      <p>Travelled by {travelPlan.nameofTraveller}</p>
 
-      <img
-        src={travelPlan.travelImage}
-        alt={travelPlan.travelLocation}
-      />
+      <img src={travelPlan.travelImage} alt={travelPlan.travelLocation} />
 
       <h2>Accommodation</h2>
       <p>{travelPlan.accomodationType}</p>
@@ -71,22 +64,15 @@ function TravelDetailsPage() {
       </ul>
 
       <h2>Weather</h2>
-      <p>
-        Temperature: {travelPlan.weather.temperature}
-      </p>
+      <p>Temperature: {travelPlan.weather.temperature}</p>
 
-      <p>
-        Condition: {travelPlan.weather.condition}
-      </p>
+      <p>Condition: {travelPlan.weather.condition}</p>
 
-      <Link to="/travels">
-        Back to all travels
+      <Link to="/travels">Back to all travels</Link>
+      <Link to ={`/travelPlans/${travelPlan.id}/edit`}>
+        <button>Edit</button>
       </Link>
-
-      <button onClick={deleteTravel}>
-  Delete 
-</button>
-
+      <button onClick={deleteTravel}>Delete</button>
     </div>
   );
 }

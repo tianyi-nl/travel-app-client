@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import CreatorListPage from "./Pages/CreatorListPage";
 import CreatorDetailsPage from "./Pages/CreatorDetailsPage";
 import CreateTravelPage from "./Pages/CreateTravelPage";
+import EditPage from "./Pages/EditPage";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +29,7 @@ function App() {
 
         <Route path="/creator" element={<CreatorListPage />} />
         <Route path="/creator/:creatorId" element={<CreatorDetailsPage />} />
+         <Route path="/travelPlans/:travelId/edit" element={<EditPage />} />
         
 
         
