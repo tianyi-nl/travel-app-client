@@ -1,8 +1,10 @@
-import React from 'react'
 
+  
 function Footer() {
   return (
-    <div>Footer</div>
+    <div className="Footer">
+      <p>&copy; 2026 Travel App. All rights reserved.</p>
+    </div>
   )
 }
 
