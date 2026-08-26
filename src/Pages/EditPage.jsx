@@ -42,17 +42,19 @@ function EditPage() {
       setTemperature(response.data.weather.temperature);
       setCondition(response.data.weather.condition);
       const creatorId = response.data.creatorId;
-      
-      setCreatorId(creatorId);
-      
-      const response2 = await axios.get(
-        `https://travelapp-json-server.onrender.com/creator/${creatorId}`,
-      );
-      
-      setNameofCreator(response2.data.nameofCreator);
-      setProfileImage(response2.data.profileImage);
 
-      
+      setCreatorId(creatorId);
+
+      const response2 = await axios.get(
+        `https://travelapp-json-server.onrender.com/creator?travelPlanId=${travelId}`,
+      );
+
+      const creator = response2.data[0];
+
+      setCreatorId(creator.id);
+      setNameofCreator(creator.nameofCreator);
+      setProfileImage(creator.profileImage);
+
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -93,7 +95,9 @@ function EditPage() {
         },
       );
       navigate(`/travelPlans/${travelId}`);
-    } catch (error) {console.log(error)}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (isLoading) return <h3>Loading...</h3>;
@@ -164,7 +168,9 @@ function EditPage() {
         <h2>Creator information</h2>
 
         <label>Creator name</label>
-        <input type="text" value={nameofCreator} readOnly />
+        <input type="text" value={nameofCreator}
+        onChange={(e) => setNameofCreator(e.target.value)}
+        />
 
         <label>Creator profile image</label>
         <input
