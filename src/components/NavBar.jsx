@@ -1,21 +1,34 @@
 
+import { Link } from "react-router-dom"
+
+
 
 function NavBar() {
   return (
     <div className="NavBar">
       <h1>Travel App</h1>
+
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/travel-plans">Travel Plans</a></li>
-          <li><a href="/Creator">Creator</a></li>
-          <li><a href="/add-travel-plan">Add Travel Plan</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+
+          <li>
+            <Link to="/creator">Creator</Link>
+          </li>
+
+          <li>
+            <Link to="/travelPlans/create">Add Travel Plan</Link>
+          </li>
         </ul>
       </nav>
     </div>
-  )
+  );
 }
 
 export default NavBar;

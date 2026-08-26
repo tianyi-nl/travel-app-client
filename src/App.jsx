@@ -12,6 +12,7 @@ import CreatorListPage from "./Pages/CreatorListPage";
 import CreatorDetailsPage from "./Pages/CreatorDetailsPage";
 import CreateTravelPage from "./Pages/CreateTravelPage";
 import EditPage from "./Pages/EditPage";
+import AboutPage from "./Pages/AboutPage"
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/creator/:creatorId" element={<CreatorDetailsPage />} />
          <Route path="/travelPlans/:travelId/edit" element={<EditPage />} />
         
+         <Route path="/about" element={<AboutPage/>} />
 
         
         <Route path={"*"} element={<ErrorPage />} />
