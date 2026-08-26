@@ -30,7 +30,7 @@ function CreateTravelPage() {
       };
 
       const response2 = await axios.post(
-        "https://travelapp-json-server.onrender.com/creator",
+        "https://travelapp-json-server.onrender.com/creators",
         body2,
       );
 

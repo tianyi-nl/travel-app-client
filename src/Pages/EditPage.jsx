@@ -46,10 +46,10 @@ function EditPage() {
       setCreatorId(creatorId);
 
       const response2 = await axios.get(
-        `https://travelapp-json-server.onrender.com/creator?travelPlanId=${travelId}`,
+        `https://travelapp-json-server.onrender.com/creators/${creatorId}`,
       );
 
-      const creator = response2.data[0];
+      const creator = response2.data;
 
       setCreatorId(creator.id);
       setNameofCreator(creator.nameofCreator);
@@ -89,7 +89,7 @@ function EditPage() {
       );
 
       await axios.patch(
-        `https://travelapp-json-server.onrender.com/creator/${creatorId}`,
+        `https://travelapp-json-server.onrender.com/creators/${creatorId}`,
         {
           profileImage: profileImage,
         },
