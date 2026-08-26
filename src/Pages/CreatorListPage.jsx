@@ -15,7 +15,7 @@ function CreatorListPage() {
   const getData = async () => {
     try {
       const response = await axios.get(
-        "https://travelapp-json-server.onrender.com/creator",
+        "https://travelapp-json-server.onrender.com/creators",
       );
 
       setAllCreator(response.data);
