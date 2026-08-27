@@ -2,22 +2,38 @@ import React from "react";
 
 function SearchBar({ searchTerm, setSearchTerm }) {
   return (
-    <div className="SearchBar">
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-        placeholder="Search by destination or traveller"
-        aria-label="Search travel plans"
-        style={{
-          width: "100%",
-          maxWidth: "400px",
-          padding: "0.75rem 1rem",
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-          fontSize: "1rem",
-        }}
-      />
+    <div className="flex flex-col items-center px-4 py-6 sm:px-6">
+
+      <h2 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+        Where to go?
+      </h2>
+
+      <div className="w-full max-w-3xl">
+        <div className="flex items-center rounded-full border border-gray-300 bg-white p-1.5 shadow-md focus-within:ring-2 focus-within:ring-gray-200">
+
+          <span className="ml-2 mr-2 text-lg text-gray-500 sm:ml-3 sm:mr-3 sm:text-xl">
+            🔍
+          </span>
+
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="Search by destination or traveller"
+            aria-label="Search travel plans"
+            className="min-w-0 flex-1 bg-transparent px-1 py-3 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:px-2 sm:text-base"
+          />
+
+          <button
+            type="button"
+            className="shrink-0 rounded-full bg-green-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-600 sm:px-7 sm:py-3 sm:text-base"
+          >
+            Search
+          </button>
+
+        </div>
+      </div>
+
     </div>
   );
 }

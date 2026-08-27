@@ -8,7 +8,7 @@ function TravelCard({
   accomodationType,
 }) {
   return (
-    <div className="w-60 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+    <div className="w-60 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition hover:scale-105">
       <Link to={`/travelPlans/${id}`}>
         <div className="relative w-full h-80">
           <img
