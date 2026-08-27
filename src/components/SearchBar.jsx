@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchBar({ searchTerm, setSearchTerm }) {
   return (
-    <div className="flex flex-col items-center px-4 py-6 sm:px-6">
+    <div className="flex flex-col items-center px-4 py-20 sm:px-6 ">
 
       <h2 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
         Where to go?
@@ -12,7 +12,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
         <div className="flex items-center rounded-full border border-gray-300 bg-white p-1.5 shadow-md focus-within:ring-2 focus-within:ring-gray-200">
 
           <span className="ml-2 mr-2 text-lg text-gray-500 sm:ml-3 sm:mr-3 sm:text-xl">
-            🔍
+            
           </span>
 
           <input
@@ -26,7 +26,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
 
           <button
             type="button"
-            className="shrink-0 rounded-full bg-green-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-600 sm:px-7 sm:py-3 sm:text-base"
+            className="shrink-0 rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 sm:px-7 sm:py-3 sm:text-base"
           >
             Search
           </button>
