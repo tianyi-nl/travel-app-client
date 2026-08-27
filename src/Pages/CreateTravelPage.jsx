@@ -68,9 +68,7 @@ function CreateTravelPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <h1 className="text-2xl font-bold text-center mb-8">
-        Create Travel Plan
-      </h1>
+      <h1 className="text-2xl font-bold text-center mb-8">Create Travel Plan</h1>
 
       <form
         onSubmit={handleSubmit}
@@ -157,6 +155,7 @@ function CreateTravelPage() {
                   onChange={(e) => setTemperature(e.target.value)}
                 />
               </div>
+
               <div>
                 <label className={labelClass}>Weather condition</label>
                 <input
@@ -196,26 +195,16 @@ function CreateTravelPage() {
               />
             </div>
 
-            <div>
-              <label className={labelClass}>Rating</label>
-              <input
-                type="text"
-                className={inputClass}
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-              />
-            </div>
-
             <button
               type="submit"
               className="w-full mt-4 bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
-              Submit
+              Save Changes
             </button>
           </div>
         </div>
 
-        {/* Right column: static photo, stretches to match left column's height */}
+        {/* Right column: same static photo as Create page */}
         <div className="w-full lg:w-120 flex-shrink-0">
           <img
             src={backgroundpic}
@@ -227,6 +216,5 @@ function CreateTravelPage() {
     </div>
   );
 }
-
 
 export default CreateTravelPage;

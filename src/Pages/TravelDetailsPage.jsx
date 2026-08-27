@@ -39,40 +39,89 @@ function TravelDetailsPage() {
 
   if (isLoading) return <h3>loading....</h3>;
   return (
-    <div className="TravelDetailsPage">
-      <h1>{travelPlan.travelLocation}</h1>
+    <div className="min-h-screen bg-gray-50 py-10 px-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col lg:flex-row pt-[48px] gap-12 mb-8">
+          {/* Photo */}
+          <div className="lg:w-2/3 h-[480px] rounded-2xl overflow-hidden shadow-md">
+            <img
+              src={travelPlan.travelImage}
+              alt={travelPlan.travelLocation}
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-      <p>Travelled by {travelPlan.nameofTraveller}</p>
+          {/* Traveller info */}
+          <div className="lg:w-1/3 flex flex-col justify-end">
+            <p className="text-gray-500 text-sm">Travelled by</p>
+            <p className="text-xl font-semibold text-gray-900">
+              {travelPlan.nameofTraveller}
+            </p>
+          </div>
+        </div>
 
-      <img src={travelPlan.travelImage} alt={travelPlan.travelLocation} />
+        {/* Location title */}
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">
+          {travelPlan.travelLocation}
+        </h1>
 
-      <h2>Accommodation</h2>
-      <p>{travelPlan.accomodationType}</p>
+        {/* Travel info card - same width as photo above */}
+        <div className="lg:w-2/3 bg-white rounded-2xl shadow p-6 mb-8">
+          <h2 className="text-xl font-semibold text-gray-900 mb-5">
+            Travel Info
+          </h2>
 
-      <h2>Places to Eat</h2>
-      <ul>
-        {travelPlan.placesToEat.map((place) => (
-          <li key={place}>{place}</li>
-        ))}
-      </ul>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-4 gap-x-6">
+            <div className="text-gray-700 text-sm">
+              Accommodation : {travelPlan.accomodationType}
+            </div>
 
-      <h2>Attractions</h2>
-      <ul>
-        {travelPlan.attractions.map((attraction) => (
-          <li key={attraction}>{attraction}</li>
-        ))}
-      </ul>
+            <div className="text-gray-700 text-sm">
+              Temperature : {travelPlan.weather.temperature}
+            </div>
 
-      <h2>Weather</h2>
-      <p>Temperature: {travelPlan.weather.temperature}</p>
+            <div className="text-gray-700 text-sm">
+              Condition : {travelPlan.weather.condition}
+            </div>
 
-      <p>Condition: {travelPlan.weather.condition}</p>
+            {travelPlan.placesToEat.map((place) => (
+              <div key={place} className="text-gray-700 text-sm">
+                {place}
+              </div>
+            ))}
 
-      <Link to="/travels">Back to all travels</Link>
-      <Link to ={`/travelPlans/${travelPlan.id}/edit`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={deleteTravel}>Delete</button>
+            {travelPlan.attractions.map((attraction) => (
+              <div key={attraction} className="text-gray-700 text-sm">
+                {attraction}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="flex items-center justify-between lg:w-2/3 ">
+          <Link
+            to="/travels"
+            className="text-blue-600 hover:text-blue-800 font-medium text-sm"
+          >
+            ← Back to all travels
+          </Link>
+
+          <div className="flex justify-end gap-3">
+            <Link to={`/travelPlans/${travelPlan.id}/edit`}>
+              <button className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 text-sm font-medium hover:bg-gray-300 transition-colors">
+                Edit
+              </button>
+            </Link>
+            <button
+              onClick={deleteTravel}
+              className="px-4 py-2 rounded-md bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-colors"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
