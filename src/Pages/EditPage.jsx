@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import backgroundpic from "../assets/formpic.jpg";
+import editpic from "../assets/editpic.jpg";
 
 function EditPage() {
   const navigate = useNavigate();
@@ -31,6 +31,7 @@ function EditPage() {
 
   const getData = async () => {
     try { console.log("travelId:", travelId);
+
       const response = await axios.get(
         `https://travelapp-json-server.onrender.com/travelPlans/${travelId}`,
       );
@@ -42,16 +43,14 @@ function EditPage() {
       setAttractions(response.data.attractions.join(", "));
       setTemperature(response.data.weather.temperature);
       setCondition(response.data.weather.condition);
-      const creatorId = response.data.creatorId;
-
-      setCreatorId(creatorId);
+   
 
       const response2 = await axios.get(
         `https://travelapp-json-server.onrender.com/travelPlans?creatorId=${creatorId}`,
       );
 
-      const creator = response2.data;
-
+      const creator = response2.data[0];
+      
       setCreatorId(creator.id);
       setNameofCreator(creator.nameofCreator);
       setProfileImage(creator.profileImage);
@@ -114,13 +113,11 @@ const inputClass =
 
     <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
 
-      {/* Left column: Travel + Creator stacked vertically */}
+      {/* Travel information */}
       <form
         onSubmit={handleFormSubmit}
         className="flex-1 flex flex-col gap-6"
       >
-
-        {/* Travel section */}
         <div className="bg-white rounded-lg shadow p-6 space-y-4">
           <h2 className="text-lg font-semibold border-b pb-2">
             Travel information
@@ -211,34 +208,6 @@ const inputClass =
               />
             </div>
           </div>
-        </div>
-
-
-        {/* Creator section */}
-        <div className="bg-white rounded-lg shadow p-6 space-y-4">
-          <h2 className="text-lg font-semibold border-b pb-2">
-            Creator information
-          </h2>
-
-          <div>
-            <label className={labelClass}>Creator name</label>
-            <input
-              type="text"
-              className={inputClass}
-              value={nameofCreator}
-              onChange={(e) => setNameofCreator(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className={labelClass}>Creator profile image</label>
-            <input
-              type="text"
-              className={inputClass}
-              value={profileImage}
-              onChange={(e) => setProfileImage(e.target.value)}
-            />
-          </div>
 
           <button
             type="submit"
@@ -247,14 +216,12 @@ const inputClass =
             Save Changes
           </button>
         </div>
-
       </form>
-
 
       {/* Right column: static photo */}
       <div className="w-full lg:w-120 flex-shrink-0">
         <img
-          src={backgroundpic}
+          src={editpic}
           alt="Travel"
           className="w-full h-full object-cover object-[30%_center] rounded-lg shadow"
         />
