@@ -9,20 +9,7 @@ function AboutPage() {
       <div className="flex flex-col flex-1">
         <h1 className="text-2xl font-bold text-center mb-8">About Us</h1>
         <p>
-          Welcome to our travel app! We are dedicated to providing the best
-          travel experiences in Europe for our users. This app allows you to
-          explore various travel plans, discover new destinations, and create
-          your own personalized travel itineraries. Our team is passionate about
-          travel and committed to helping you make the most of your journey. Our
-          team is made up of experienced travelers, developers, and designers
-          who work together to create a seamless and enjoyable user experience.
-          Tianyi Xi, a software engineer with a passion for travel, is the lead
-          developer of this app. He has extensive experience in building web
-          applications and is dedicated to creating a user-friendly platform for
-          travelers. Oyetomi Oyelaja is a talented designer with a keen eye for
-          detail. She is responsible for the app's visual design and user
-          interface, ensuring that it is both aesthetically pleasing and easy to
-          navigate.
+         Welcome to our travel platform — a place built for sharing journeys, not just planning them. Whether you're a seasoned backpacker or planning your very first trip, this app gives you the tools to document your adventures, discover new destinations, and connect with fellow travelers from around the world. We believe every trip has a story worth sharing, and our platform makes it easy to turn your travel memories into itineraries others can explore, save, and follow. Our team is made up of passionate travelers, developers, and designers who work together to create a seamless and enjoyable experience for our community.
         </p>
       </div>
     </div>
