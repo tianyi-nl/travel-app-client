@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import TravelCard from "../components/TravelCard";
 
 function CreatorDetailsPage() {
   const { creatorId } = useParams();
@@ -44,45 +45,78 @@ function CreatorDetailsPage() {
     return <h3>Creator not found</h3>;
   }
 
-  return (
-    <div>
-      <h1>{creator.nameofCreator}</h1>
+return (
+  <div className="min-h-screen bg-gray-100">
 
-      <img
-        src={creator.profileImage}
-        alt={creator.nameofCreator}
-      />
+    {/* Creator profile section */}
+    <section className="bg-white">
+      <div className="max-w-6xl mx-auto px-8 py-10">
 
-      <p>Rating: {creator.rating}</p>
+        <div className="flex items-center gap-8">
 
-      <hr />
-
-      <h2>Travel Plans created by {creator.nameofCreator}</h2>
-
-      {travelPlans.map((travelPlan) => (
-        <div key={travelPlan.id}>
-          <h3>{travelPlan.travelLocation}</h3>
-
+          {/* Profile image */}
           <img
-            src={travelPlan.travelImage}
-            alt={travelPlan.travelLocation}
+            className="w-40 h-40 rounded-full object-cover"
+            src={creator.profileImage}
+            alt={creator.nameofCreator}
           />
 
-          <p>{travelPlan.accomodationType}</p>
+          {/* Creator information */}
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900">
+              {creator.nameofCreator}
+            </h1>
 
-          <Link to={`/travelPlans/${travelPlan.id}`}>
-            View Travel Plan
-          </Link>
+            <p className="text-gray-500 mt-2">
+              Travel Creator
+            </p>
+
+            <p className="mt-4 text-lg">
+              ⭐ {creator.rating}
+            </p>
+          </div>
+
         </div>
-      ))}
 
-      <br />
+      </div>
+    </section>
 
-      <Link to="/creator">
-        Back to creators
+
+    {/* Travel plans section */}
+    <section className="max-w-6xl mx-auto px-8 py-10">
+
+      <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        Travel Plans by {creator.nameofCreator}
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        {travelPlans.slice(0, 2).map((travelPlan) => (
+          <TravelCard
+            key={travelPlan.id}
+            {...travelPlan}
+          />
+        ))}
+
+      </div>
+
+    </section>
+
+
+    {/* Back to creators */}
+    <div className="max-w-6xl mx-auto px-8 pb-10">
+
+      <Link
+        to="/creator"
+        className="text-blue-600 hover:text-blue-800"
+      >
+        ← Back to creators
       </Link>
+
     </div>
-  );
+
+  </div>
+);
 }
 
 export default CreatorDetailsPage;
