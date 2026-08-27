@@ -1,26 +1,31 @@
-import {Link} from "react-router-dom"
-import "./TravelCard.css"
- 
+import { Link } from "react-router-dom";
 
-function TravelCard({ id, travelLocation, travelImage, nameofTraveller }) {
-
+function TravelCard({
+  id,
+  travelLocation,
+  travelImage,
+  nameofTraveller,
+  accomodationType,
+}) {
   return (
-     <div className="TravelCard">
-      <img
-        className="TravelCard-image"
-        src={travelImage}
-        alt={travelLocation}
-      />
+    <div className="w-60 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+      <Link to={`/travelPlans/${id}`}>
+        <div className="relative w-full h-80">
+          <img
+            className="w-full h-full object-cover"
+            src={travelImage}
+            alt={travelLocation}
+          />
 
-      <div className="TravelCard-content">
-        <h3>{travelLocation}</h3>
+          <div className="absolute inset-0 flex flex-col justify-end px-5 py-4 text-white">
+            <h2 className="text-xl font-bold">{travelLocation}</h2>
 
-        <p>Travelled by {nameofTraveller}</p>
+            <p className="mt-[12px]">Travelled by {nameofTraveller}</p>
 
-        <Link to={`/travelPlans/${id}`} className="TravelCard-link">
-          View travel
-        </Link>
-      </div>
+            <p className="mt-[2px]">{accomodationType}</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }
