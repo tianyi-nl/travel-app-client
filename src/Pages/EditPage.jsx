@@ -19,9 +19,7 @@ function EditPage() {
   const [condition, setCondition] = useState();
 
   const [creatorId, setCreatorId] = useState("");
-  const [nameofCreator, setNameofCreator] = useState("");
-  const [profileImage, setProfileImage] = useState("");
-  const [rating, setRating] = useState("");
+
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -45,16 +43,7 @@ function EditPage() {
       setCondition(response.data.weather.condition);
    
 
-      const response2 = await axios.get(
-        `https://travelapp-json-server.onrender.com/travelPlans?creatorId=${creatorId}`,
-      );
-
-      const creator = response2.data[0];
       
-      setCreatorId(creator.id);
-      setNameofCreator(creator.nameofCreator);
-      setProfileImage(creator.profileImage);
-
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -81,19 +70,14 @@ function EditPage() {
           temperature: temperature,
           condition: condition,
         },
-        creatorId,
+      
       };
       const response = await axios.put(
         `https://travelapp-json-server.onrender.com/travelPlans/${travelId}`,
         body,
       );
 
-      await axios.patch(
-        `https://travelapp-json-server.onrender.com/creators/${creatorId}`,
-        {
-          profileImage: profileImage,
-        },
-      );
+      
       navigate(`/travelPlans/${travelId}`);
     } catch (error) {
       console.log(error);
