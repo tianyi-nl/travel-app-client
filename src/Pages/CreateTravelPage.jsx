@@ -68,7 +68,7 @@ function CreateTravelPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <h1 className="text-2xl font-bold text-center mb-8">Create Travel Plan</h1>
+      <h1 className="text-2xl font-bold text-center mb-8">Create Your Story</h1>
 
       <form
         onSubmit={handleSubmit}
@@ -199,7 +199,7 @@ function CreateTravelPage() {
               type="submit"
               className="w-full mt-4 bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
-              Save Changes
+             Create
             </button>
           </div>
         </div>
