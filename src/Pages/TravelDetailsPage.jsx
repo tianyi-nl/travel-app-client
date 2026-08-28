@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import accomodationpic from "../assets/icon_accomodation.png"
-import temppic from "../assets/icon_temperature.png"
-import conditionpic from "../assets/icon_condition.png"
-import placepic from "../assets/icon_place.png"
-import attractionpic from "../assets/icon_attraction.png"
+import accomodationpic from "../assets/icon_accomodation.png";
+import temppic from "../assets/icon_temperature.png";
+import conditionpic from "../assets/icon_condition.png";
+import placepic from "../assets/icon_place.png";
+import attractionpic from "../assets/icon_attraction.png";
 
 function TravelDetailsPage() {
   //console.log("traveldetailspage is running")
@@ -78,49 +78,39 @@ function TravelDetailsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-6 gap-x-6">
             <div className="text-gray-700 text-sm">
-                <img
-      src={accomodationpic}
-      alt="Accommodation"
-      className="w-5 h-5"
-    />
-            {travelPlan.accomodationType}
-            </div>
-
-            <div className="text-gray-700 text-sm">
-               <img
-      src={temppic}
-      alt="Temperature"
-      className="w-5 h-5"
-    />
-             {travelPlan.weather.temperature}
-            </div>
-
-            <div className="text-gray-700 text-sm">
               <img
-      src={conditionpic}
-      alt="Temperature"
-      className="w-5 h-5"
-    />
-             {travelPlan.weather.condition}
+                src={accomodationpic}
+                alt="Accommodation"
+                className="w-5 h-5"
+              />
+              {travelPlan.accomodationType}
+            </div>
+
+            <div className="text-gray-700 text-sm">
+              <img src={temppic} alt="Temperature" className="w-5 h-5" />
+              {travelPlan.weather.temperature}
+            </div>
+
+            <div className="text-gray-700 text-sm">
+              <img src={conditionpic} alt="Temperature" className="w-5 h-5" />
+              {travelPlan.weather.condition}
             </div>
 
             {travelPlan.placesToEat.map((place) => (
               <div key={place} className="text-gray-700 text-sm">
-                 <img
-      src={placepic}
-      alt="Temperature"
-      className="w-5 h-5"
-    />{place}
+                <img src={placepic} alt="Temperature" className="w-5 h-5" />
+                {place}
               </div>
             ))}
 
             {travelPlan.attractions.map((attraction) => (
               <div key={attraction} className="text-gray-700 text-sm">
-               <img
-      src={attractionpic}
-      alt="Temperature"
-      className="w-5 h-5"
-    />{attraction}
+                <img
+                  src={attractionpic}
+                  alt="Temperature"
+                  className="w-5 h-5"
+                />
+                {attraction}
               </div>
             ))}
           </div>
@@ -136,17 +126,17 @@ function TravelDetailsPage() {
           </Link>
 
           <div className="flex justify-end gap-3">
-            <Link to={`/travelPlans/${travelPlan.id}/edit`}>
-              <button className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 text-sm font-medium hover:bg-gray-300 transition-colors">
-                Edit
-              </button>
-            </Link>
             <button
               onClick={deleteTravel}
-              className="px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 rounded-md bg-blue-600 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium transition-colors"
             >
               Delete
             </button>
+            <Link to={`/travelPlans/${travelPlan.id}/edit`}>
+              <button className="px-4 py-2 rounded-md  bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium hover:bg-gray-300 transition-colors">
+                Edit
+              </button>
+            </Link>
           </div>
         </div>
       </div>

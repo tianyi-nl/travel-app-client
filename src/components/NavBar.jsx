@@ -16,7 +16,7 @@ function NavBar() {
 
           <li>
             <Link to="/travelPlans/create" className="hover:text-blue-200">
-              Add Travel Plan
+             + Create story
             </Link>
           </li>
 
